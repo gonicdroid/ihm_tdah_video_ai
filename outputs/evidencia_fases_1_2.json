@@ -1,0 +1,28 @@
+{
+    "fase_1_sintesis": {
+        "tema_central": "Progresar: beca educativa para jóvenes argentinos",
+        "tres_ideas_importantes": [
+            "Progresar es una beca educativa que acompaña a los jóvenes para que terminen sus estudios",
+            "La beca está destinada a estudiantes que se encuentren cursando el nivel secundario o superior",
+            "El objetivo de Progresar es promover la formación académica y profesional de los jóvenes"
+        ],
+        "idea_principal_video": "¿Qué es Progresar y cómo puedo inscribirme?",
+        "palabras_clave": [
+            "Progresar",
+            "beca educativa",
+            "jóvenes argentinos",
+            "estudios",
+            "formación académica",
+            "formación profesional"
+        ],
+        "tono_deseado": "Urgente y resolutivo"
+    },
+    "fase_2_mensaje": {
+        "hooks_propuestos": [
+            "Si no te inscribes a Progresar, podrías perder la oportunidad de recibir una beca educativa",
+            "La inscripción a Progresar se extenderá solo hasta el 24 de abril, ¡no te pierdas la oportunidad!",
+            "Si no cumplir con los requisitos de Progresar, podrías ver suspendida tu beca y perder el apoyo financiero"
+        ],
+        "hook_elegido_por_humano": "Si no te inscribes a Progresar, podrías perder la oportunidad de recibir una beca educativa"
+    }
+}

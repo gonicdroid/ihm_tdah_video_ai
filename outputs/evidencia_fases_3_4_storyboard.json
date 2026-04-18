@@ -1,0 +1,80 @@
+{
+    "fase_3_psicologia": {
+        "recursos_utilizados": [
+            {
+                "recurso": "Contraste visual",
+                "justificacion": "Para destacar la importancia de la inscripción a Progresar y crear una sensación de urgencia"
+            },
+            {
+                "recurso": "Recompensa inmediata",
+                "justificacion": "Para motivar a los jóvenes a inscribirse a Progresar y recibir una beca educativa"
+            }
+        ]
+    },
+    "fase_4_storyboard": [
+        {
+            "escena_numero": 1,
+            "tiempo": "0s - 2s",
+            "fase_psicologica": "Pulsión de muerte",
+            "prompt_visual_ia": "Cinematic close up of a clock ticking away with a red X marked through it",
+            "texto_en_pantalla": "¡No te pierdas la oportunidad!",
+            "texto_para_locucion": "Locución: \"Si no te inscribes a Progresar, podrías perder la oportunidad de recibir una beca educativa\""
+        },
+        {
+            "escena_numero": 2,
+            "tiempo": "2s - 4s",
+            "fase_psicologica": "Pulsión de muerte",
+            "prompt_visual_ia": "Cinematic close up of a student looking worried and stressed with a calendar in the background",
+            "texto_en_pantalla": "La inscripción se extenderá solo hasta el 24 de abril",
+            "texto_para_locucion": "Locución: \"La inscripción a Progresar se extenderá solo hasta el 24 de abril, ¡no te pierdas la oportunidad!\""
+        },
+        {
+            "escena_numero": 3,
+            "tiempo": "4s - 6s",
+            "fase_psicologica": "Neutro",
+            "prompt_visual_ia": "Cinematic close up of a student looking calm and focused with a book in the background",
+            "texto_en_pantalla": "¿Qué es Progresar?",
+            "texto_para_locucion": "Locución: \"Progresar es una beca educativa que acompaña a los jóvenes para que terminen sus estudios\""
+        },
+        {
+            "escena_numero": 4,
+            "tiempo": "6s - 8s",
+            "fase_psicologica": "Neutro",
+            "prompt_visual_ia": "Cinematic close up of a student looking happy and motivated with a certificate in the background",
+            "texto_en_pantalla": "¿Cómo puedo inscribirme?",
+            "texto_para_locucion": "Locución: \"El objetivo de Progresar es promover la formación académica y profesional de los jóvenes\""
+        },
+        {
+            "escena_numero": 5,
+            "tiempo": "8s - 10s",
+            "fase_psicologica": "Pulsión de vida",
+            "prompt_visual_ia": "Cinematic close up of a student looking happy and relieved with a certificate in the background",
+            "texto_en_pantalla": "¡Inscríbete a Progresar!",
+            "texto_para_locucion": "Locución: \"Inscríbete a Progresar y recibe una beca educativa para terminar tus estudios\""
+        },
+        {
+            "escena_numero": 6,
+            "tiempo": "10s - 12s",
+            "fase_psicologica": "Pulsión de vida",
+            "prompt_visual_ia": "Cinematic close up of a student looking happy and motivated with a book in the background",
+            "texto_en_pantalla": "Recibe apoyo financiero y profesional",
+            "texto_para_locucion": "Locución: \"Progresar te ofrece apoyo financiero y profesional para que puedas alcanzar tus objetivos\""
+        },
+        {
+            "escena_numero": 7,
+            "tiempo": "12s - 14s",
+            "fase_psicologica": "Pulsión de vida",
+            "prompt_visual_ia": "Cinematic close up of a student looking happy and proud with a certificate in the background",
+            "texto_en_pantalla": "Termina tus estudios con éxito",
+            "texto_para_locucion": "Locución: \"Con Progresar, puedes terminar tus estudios con éxito y alcanzar tus metas\""
+        },
+        {
+            "escena_numero": 8,
+            "tiempo": "14s - 16s",
+            "fase_psicologica": "Pulsión de vida",
+            "prompt_visual_ia": "Cinematic close up of a student looking happy and motivated with a book in the background",
+            "texto_en_pantalla": "¡Inscríbete a Progresar hoy mismo!",
+            "texto_para_locucion": "Locución: \"Inscríbete a Progresar hoy mismo y comienza a alcanzar tus objetivos\""
+        }
+    ]
+}

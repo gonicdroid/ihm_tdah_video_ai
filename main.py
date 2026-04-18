@@ -1,122 +1,178 @@
 import os
 import json
-import subprocess
-from abc import ABC, abstractmethod
-from typing import List, Dict, Any
+from typing import Dict, Any
 from groq import Groq
 from dotenv import load_dotenv
+from ingesta import ExtractorDocumental
 
-# Cargar variables de entorno (tu GROQ_API_KEY)
+# Cargar variables de entorno
 load_dotenv()
 
-class VideoGeneratorStrategy(ABC):
-    """Interfaz para la generación de video."""
-    @abstractmethod
-    def generar_clip(self, prompt_visual: str, texto_pantalla: str, duracion: int, output_filename: str) -> str:
-        pass
-
-class MockVideoGenerator(VideoGeneratorStrategy):
-    """Generador de prueba local que no consume créditos. Usa FFmpeg."""
-    def generar_clip(self, prompt_visual: str, texto_pantalla: str, duracion: int, output_filename: str) -> str:
-        print(f"[MOCK] Generando video para: '{prompt_visual}'...")
-        # Genera un video negro de 'duracion' segundos con el texto centrado usando FFmpeg
-        comando = [
-            'ffmpeg', '-y', '-f', 'lavfi', '-i', f'color=c=black:s=1080x1920:d={duracion}',
-            '-vf', f"drawtext=text='{texto_pantalla}':fontcolor=white:fontsize=48:x=(w-text_w)/2:y=(h-text_h)/2",
-            output_filename
-        ]
-        # Ejecutamos de forma silenciosa
-        subprocess.run(comando, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        print(f"[MOCK] Clip guardado: {output_filename}")
-        return output_filename
-
-class APIRepareVideoGenerator(VideoGeneratorStrategy):
-    """Implementación futura para Replicate, Kling, etc."""
-    def generar_clip(self, prompt_visual: str, texto_pantalla: str, duracion: int, output_filename: str) -> str:
-        # TODO: Implementar la llamada HTTP a la API real.
-        raise NotImplementedError("La API real de video aún no está conectada.")
-
 class CerebroPsicologico:
-    """Se encarga de comunicarse con Groq para estructurar el guion TDAH."""
+    """Implementa el Pipeline de IA dividido en fases según la rúbrica académica."""
     def __init__(self):
         self.cliente = Groq(api_key=os.getenv("GROQ_API_KEY"))
-        
-    def generar_guion(self, texto_fuente: str) -> Dict[str, Any]:
+        self.modelo = os.getenv("LLM_MODEL")
+
+    def ejecutar_fase1_y_2(self, texto_fuente: str) -> Dict[str, Any]:
+        """Fase 1 (Síntesis) y Fase 2 (Generación de Hooks)."""
         prompt_sistema = """
-        Eres un experto en psicología del consumidor y TDAH. 
-        Tu objetivo es tomar el texto conceptual provisto y devolver ÚNICAMENTE un objeto JSON.
-        El guion debe durar máximo 6 segundos, dividido en bloques de 2 segundos.
-        Aplica estrictamente: Bloque 1 (Pulsión de muerte/Pérdida) -> Bloque 2 (Neutro/Transición) -> Bloque 3 (Pulsión de vida/Recompensa).
+        Eres un analista experto en marketing digital y psicología de la atención. 
+        Tu tarea es procesar el texto fuente y extraer la información clave.
         
-        Formato JSON requerido:
+        REGLA VITAL PARA LOS HOOKS: Deben aplicar el concepto de "Pulsión de muerte" (Pérdida, urgencia, alerta). 
+        No hagas preguntas amables. Apela al miedo a perder una oportunidad o dinero.
+        
+        Devuelve ÚNICAMENTE un JSON con esta estructura exacta:
         {
-          "escenas": [
-            {
-              "bloque": 1,
-              "prompt_visual_ia": "Descripción visual detallada",
-              "texto_en_pantalla": "TEXTO CORTO",
-              "texto_para_locucion": "Locución persuasiva"
-            }
-          ]
+          "fase_1_sintesis": {
+            "tema_central": "...",
+            "tres_ideas_importantes": ["...", "...", "..."],
+            "idea_principal_video": "...",
+            "palabras_clave": ["...", "..."],
+            "tono_deseado": "Urgente y resolutivo"
+          },
+          "fase_2_mensaje": {
+            "hooks_propuestos": ["Hook 1 (Agresivo)...", "Hook 2 (Urgencia)...", "Hook 3 (Pérdida)..."]
+          }
         }
         NO devuelvas markdown, solo el JSON puro.
         """
-        
-        print("[GROQ] Solicitando estructuración del guion...")
+        print("[GROQ] Ejecutando Fases 1 y 2: Síntesis y Generación de Opciones...")
         respuesta = self.cliente.chat.completions.create(
             messages=[
                 {"role": "system", "content": prompt_sistema},
                 {"role": "user", "content": f"Texto fuente: {texto_fuente}"}
             ],
-            model=os.getenv("LLM_MODEL"), # Modelo muy rápido y gratuito
-            temperature=0.3, # Baja temperatura para evitar alucinaciones en el JSON
+            model=self.modelo,
+            temperature=0.4, # Un poco más de temperatura para mayor creatividad en los hooks
         )
-        
-        contenido = respuesta.choices[0].message.content
-        try:
-            return json.loads(contenido)
-        except json.JSONDecodeError:
-            print("ERROR: Groq no devolvió un JSON válido. Revisa el prompt.")
-            return {"escenas": []}
+        return json.loads(respuesta.choices[0].message.content)
 
-class PipelineTDAH:
-    """Orquestador principal."""
-    def __init__(self, video_strategy: VideoGeneratorStrategy):
+    def ejecutar_fase3_y_4(self, datos_sintesis: Dict[str, Any]) -> Dict[str, Any]:
+        """Fase 3 (Traducción Psicológica) y Fase 4 (Storyboard de 8 escenas)."""
+        prompt_sistema = """
+        Eres un experto en psicología IHM y TDAH. Usa el JSON de síntesis provisto para crear el guion del video.
+        DEBES utilizar obligatoriamente el "hook_elegido_por_humano" como texto inicial de la primera escena.
+        
+        REGLAS DEL STORYBOARD:
+        - 8 escenas exactas de 2 segundos cada una (16s totales).
+        - Escenas 1-2 (0-4s): Pulsión de muerte (Alerta, pérdida, uso del Hook elegido).
+        - Escenas 3-4 (4-8s): Neutro (Transición).
+        - Escenas 5-8 (8-16s): Pulsión de vida (Recompensa).
+        - "prompt_visual_ia": Debe ser en INGLÉS, ultra-descriptivo, y mantener continuidad visual entre escenas.
+        
+        Devuelve ÚNICAMENTE un JSON con esta estructura:
+        {
+          "fase_3_psicologia": {
+            "recursos_utilizados": [
+              {"recurso": "Contraste visual", "justificacion": "..."},
+              {"recurso": "Recompensa inmediata", "justificacion": "..."}
+            ]
+          },
+          "fase_4_storyboard": [
+             {
+              "escena_numero": 1,
+              "tiempo": "0s - 2s",
+              "fase_psicologica": "Pulsión de muerte",
+              "prompt_visual_ia": "Cinematic close up of...",
+              "texto_en_pantalla": "TEXTO CORTO Y GRANDE",
+              "texto_para_locucion": "Locución"
+            }
+          ]
+        }
+        NO devuelvas markdown, solo el JSON puro.
+        """
+        print("[GROQ] Ejecutando Fases 3 y 4: Traducción Psicológica y Storyboard...")
+        texto_contexto = json.dumps(datos_sintesis, ensure_ascii=False)
+        
+        respuesta = self.cliente.chat.completions.create(
+            messages=[
+                {"role": "system", "content": prompt_sistema},
+                {"role": "user", "content": f"Datos de síntesis con elección del usuario: {texto_contexto}"}
+            ],
+            model=self.modelo,
+            temperature=0.2,
+        )
+        return json.loads(respuesta.choices[0].message.content)
+
+
+class PipelineAcademicoTDAH:
+    """Orquestador maestro de todas las fases del TP."""
+    def __init__(self):
         self.cerebro = CerebroPsicologico()
-        self.video_gen = video_strategy
         
-    def ejecutar(self, texto_pdf: str):
-        # 1. Generar JSON
-        guion = self.cerebro.generar_guion(texto_pdf)
-        escenas = guion.get("escenas", [])
+    def ejecutar(self, texto_crudo: str):
+        os.makedirs("outputs", exist_ok=True)
         
-        if not escenas:
-            print("Abortando pipeline por error en guion.")
+        # 1. Fases 1 y 2
+        try:
+            resultados_f1_f2 = self.cerebro.ejecutar_fase1_y_2(texto_crudo)
+        except Exception as e:
+            print(f"Error en Fases 1 y 2: {e}")
+            return
+            
+        # --- INTERVENCIÓN DEL USUARIO (HUMAN IN THE LOOP) ---
+        hooks = resultados_f1_f2.get("fase_2_mensaje", {}).get("hooks_propuestos", [])
+        
+        if not hooks:
+            print("Error: La IA no generó hooks válidos.")
             return
 
-        archivos_generados = []
+        print("\n" + "="*50)
+        print(" INTERVENCIÓN HUMANA REQUERIDA (Fase 2)")
+        print("="*50)
+        print("La IA generó los siguientes ganchos atencionales. Selecciona el más adecuado:")
         
-        # 2. Iterar y generar clips
-        for i, escena in enumerate(escenas):
-            nombre_archivo = f"clip_{i+1}.mp4"
-            # Asumimos bloques de 2 segundos según las notas de clase
-            self.video_gen.generar_clip(
-                prompt_visual=escena["prompt_visual_ia"],
-                texto_pantalla=escena["texto_en_pantalla"],
-                duracion=2, 
-                output_filename=nombre_archivo
-            )
-            archivos_generados.append(nombre_archivo)
+        for i, hook in enumerate(hooks):
+            print(f"\n[{i+1}] {hook}")
             
-        print("\n--- FASE DE VIDEO COMPLETADA ---")
-        print("Archivos listos para ensamblar:", archivos_generados)
-        print("Próximo paso a desarrollar: Integrar Edge-TTS para el audio y concatenar todo con FFmpeg.")
+        seleccion = 0
+        while seleccion not in [1, 2, 3]:
+            try:
+                entrada = input("\nIngresa el número de tu elección (1, 2 o 3): ")
+                seleccion = int(entrada)
+            except ValueError:
+                print("Por favor, ingresa un número válido.")
+                
+        hook_elegido = hooks[seleccion - 1]
+        print(f"\n[+] Excelente elección. Hook configurado: '{hook_elegido}'\n")
+        
+        # Inyectamos la decisión en el diccionario
+        resultados_f1_f2["fase_2_mensaje"]["hook_elegido_por_humano"] = hook_elegido
+        
+        # Guardamos la evidencia de Fases 1 y 2
+        with open("outputs/evidencia_fases_1_2.json", 'w', encoding='utf-8') as f:
+            json.dump(resultados_f1_f2, f, indent=4, ensure_ascii=False)
+        print("  -> Fases 1 y 2 guardadas.")
+
+        # 2. Fases 3 y 4 (Le pasamos el JSON que ahora incluye la decisión del usuario)
+        try:
+            resultados_f3_f4 = self.cerebro.ejecutar_fase3_y_4(resultados_f1_f2)
+            with open("outputs/evidencia_fases_3_4_storyboard.json", 'w', encoding='utf-8') as f:
+                json.dump(resultados_f3_f4, f, indent=4, ensure_ascii=False)
+            print("  -> Fases 3 y 4 completadas y guardadas.")
+        except Exception as e:
+            print(f"Error en Fases 3 y 4: {e}")
+            return
+            
+        print("\n--- PIPELINE ESTRATÉGICO COMPLETADO ---")
+        print("Revisa la carpeta 'outputs/' para ver el Storyboard final.")
 
 if __name__ == "__main__":
-    # Inyectamos la estrategia Mock para no gastar plata mientras desarrollamos
-    generador_video = MockVideoGenerator()
-    pipeline = PipelineTDAH(generador_video)
+    pipeline = PipelineAcademicoTDAH()
+    extractor = ExtractorDocumental()
     
-    texto_prueba = "El sedentarismo está destruyendo tu metabolismo lentamente. Si caminas 30 minutos al día, reactivas tu sistema cardiovascular y extiendes tu expectativa de vida."
+    carpeta_entrada = "assets"
     
-    pipeline.ejecutar(texto_prueba)
+    print("Iniciando Extracción documental...")
+    texto_crudo = extractor.procesar_directorio(carpeta_entrada)
+    
+    if not texto_crudo.strip():
+        print("No se encontró texto para procesar. Abortando.")
+    else:
+        max_caracteres = 15000 
+        if len(texto_crudo) > max_caracteres:
+            texto_crudo = texto_crudo[:max_caracteres]
+            
+        pipeline.ejecutar(texto_crudo)
