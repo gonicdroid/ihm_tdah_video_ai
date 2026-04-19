@@ -1,0 +1,12 @@
+INSTRUCCIONES:
+Genera 3 imágenes de referencia basándote en los siguientes prompts. Además, indícame la paleta de colores sugerida en HEX y la tipografía ideal para TDAH.
+
+--- KEYFRAME: THANATOS (Pulsión de muerte) (Escena 1) ---
+Cinematic close up de un joven con una expresión de desesperación. La cámara se acerca a su rostro y se enfoca en sus ojos. El fondo es oscuro y el único sonido es el SFX de un reloj que se detiene.
+
+--- KEYFRAME: NEUTRO (Transición) (Escena 3) ---
+La cámara se enfoca en una imagen de un libro que se abre. El fondo es claro y el único sonido es el SFX de un libro que se abre.
+
+--- KEYFRAME: EROS (Pulsión de vida) (Escena 5) ---
+La cámara se enfoca en una imagen de un reloj que vuelve a funcionar. El fondo es claro y el único sonido es el SFX de un reloj que vuelve a funcionar.
+

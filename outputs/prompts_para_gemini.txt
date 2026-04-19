@@ -1,0 +1,12 @@
+INSTRUCCIONES PARA GEMINI:
+Genera 3 imágenes de referencia basándote en los siguientes prompts. Además, indícame la paleta de colores sugerida en HEX y la tipografía ideal para TDAH.
+
+--- KEYFRAME: THANATOS (Pulsión de muerte) (Escena 1) ---
+Cinematic close up de un joven estudiante con una expresión de desesperación en su rostro, con un fondo de una clase de escuela en ruinas. El color del fondo es un gris oscuro y el color del rostro del estudiante es un blanco brillante. El movimiento es lento y dramático.
+
+--- KEYFRAME: NEUTRO (Transición) (Escena 3) ---
+Cinematic wide shot de un joven estudiante sentado en una silla de escritorio, con una expresión de concentración en su rostro, y con un fondo de una clase de escuela tranquila. El color del fondo es un gris claro y el color del rostro del estudiante es un blanco brillante. El movimiento es lento y tranquilo.
+
+--- KEYFRAME: EROS (Pulsión de vida) (Escena 5) ---
+Cinematic close up de un joven estudiante con una expresión de satisfacción en su rostro, con un fondo de una clase de escuela moderna y bien iluminada. El color del fondo es un azul claro y el color del rostro del estudiante es un blanco brillante. El movimiento es lento y tranquilo.
+

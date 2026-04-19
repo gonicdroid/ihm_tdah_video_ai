@@ -1,28 +1,27 @@
 {
     "fase_1_sintesis": {
-        "tema_central": "Progresar: beca educativa para jóvenes argentinos",
+        "tema_central": "Progresar es una beca educativa que acompaña a los jóvenes para que terminen la educación obligatoria, continúen estudios en el nivel superior y se formen profesionalmente.",
         "tres_ideas_importantes": [
-            "Progresar es una beca educativa que acompaña a los jóvenes para que terminen sus estudios",
-            "La beca está destinada a estudiantes que se encuentren cursando el nivel secundario o superior",
-            "El objetivo de Progresar es promover la formación académica y profesional de los jóvenes"
+            "La beca Progresar está destinada a estudiantes que se encuentren cursando el nivel secundario o nivel superior.",
+            "El Programa de Respaldo a Estudiantes Argentinos brinda apoyo para promover la formación académica y profesional.",
+            "La beca se cobrará de la siguiente manera: 12 cuotas mensuales de $35.000, 3 cuotas estímulo y 2 cuotas por rendimiento académico."
         ],
-        "idea_principal_video": "¿Qué es Progresar y cómo puedo inscribirme?",
+        "idea_principal_video": "Los jóvenes que no tienen la oportunidad de terminar sus estudios pueden perder su futuro y su independencia financiera.",
         "palabras_clave": [
             "Progresar",
-            "beca educativa",
-            "jóvenes argentinos",
-            "estudios",
-            "formación académica",
-            "formación profesional"
+            "beca",
+            "educativa",
+            "jóvenes",
+            "estudios"
         ],
-        "tono_deseado": "Urgente y resolutivo"
+        "tono_deseado": "Serio y motivador"
     },
     "fase_2_mensaje": {
         "hooks_propuestos": [
-            "Si no te inscribes a Progresar, podrías perder la oportunidad de recibir una beca educativa",
-            "La inscripción a Progresar se extenderá solo hasta el 24 de abril, ¡no te pierdas la oportunidad!",
-            "Si no cumplir con los requisitos de Progresar, podrías ver suspendida tu beca y perder el apoyo financiero"
+            "Si no terminas tus estudios, podrías perder tu oportunidad de trabajar y vivir con dignidad.",
+            "La falta de educación puede llevar a la pobreza y la dependencia económica.",
+            "Si no te apoyas a ti mismo, nadie lo hará por ti."
         ],
-        "hook_elegido_por_humano": "Si no te inscribes a Progresar, podrías perder la oportunidad de recibir una beca educativa"
+        "hook_elegido_por_humano": "Si no te apoyas a ti mismo, nadie lo hará por ti."
     }
 }

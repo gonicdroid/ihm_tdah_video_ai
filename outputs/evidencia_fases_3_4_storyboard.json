@@ -2,79 +2,110 @@
     "fase_3_psicologia": {
         "recursos_utilizados": [
             {
-                "recurso": "Contraste visual",
-                "justificacion": "Para destacar la importancia de la inscripción a Progresar y crear una sensación de urgencia"
+                "recurso": "Atención selectiva",
+                "justificacion": "Se utiliza la idea de que si no terminas tus estudios, podrías perder tu oportunidad de trabajar y vivir con dignidad para captar la atención del usuario."
+            },
+            {
+                "recurso": "Saliencia visual",
+                "justificacion": "Se utiliza la imagen de un joven con una expresión de desesperación para llamar la atención del usuario."
+            },
+            {
+                "recurso": "Novedad",
+                "justificacion": "Se presenta una idea nueva y atractiva para motivar al usuario a terminar sus estudios."
+            },
+            {
+                "recurso": "Contraste",
+                "justificacion": "Se utiliza el contraste entre la imagen de un joven con una expresión de desesperación y la imagen de un joven con una expresión de motivación y confianza para llamar la atención del usuario."
+            },
+            {
+                "recurso": "Carga cognitiva",
+                "justificacion": "Se utiliza la idea de que si no terminas tus estudios, podrías perder tu oportunidad de trabajar y vivir con dignidad para cargar la mente del usuario con información relevante."
+            },
+            {
+                "recurso": "Memoria de trabajo",
+                "justificacion": "Se utiliza la imagen de un joven con una expresión de desesperación para recordar al usuario la importancia de terminar sus estudios."
+            },
+            {
+                "recurso": "Motivación",
+                "justificacion": "Se presenta una idea motivadora para inspirar al usuario a terminar sus estudios."
             },
             {
                 "recurso": "Recompensa inmediata",
-                "justificacion": "Para motivar a los jóvenes a inscribirse a Progresar y recibir una beca educativa"
+                "justificacion": "Se ofrece la oportunidad de terminar sus estudios y mejorar su futuro para ofrecer una recompensa inmediata al usuario."
+            },
+            {
+                "recurso": "Emoción",
+                "justificacion": "Se utiliza la emoción de la desesperación y la motivación para captar la atención y la emoción del usuario."
+            },
+            {
+                "recurso": "Legibilidad",
+                "justificacion": "Se utiliza el lenguaje claro y conciso para que el usuario pueda entender fácilmente la información."
+            },
+            {
+                "recurso": "Jerarquía visual",
+                "justificacion": "Se utiliza la jerarquía visual para organizar la información de manera clara y fácil de entender."
+            },
+            {
+                "recurso": "Reducción de fricción",
+                "justificacion": "Se ofrece la oportunidad de terminar sus estudios y mejorar su futuro para reducir la fricción y la resistencia del usuario a tomar la decisión de terminar sus estudios."
             }
         ]
     },
-    "fase_4_storyboard": [
+    "fase_4_pista_narrativa": [
+        {
+            "fase": "Thanatos",
+            "tiempo": "0s - 4s",
+            "texto_bimodal": "Si no te apoyas a ti mismo, nadie lo hará por ti.",
+            "sonido_de_fondo": "SFX de un reloj que se detiene"
+        },
+        {
+            "fase": "Neutro",
+            "tiempo": "4s - 8s",
+            "texto_bimodal": "La educación es la clave para un futuro mejor.",
+            "sonido_de_fondo": "SFX de un libro que se abre"
+        },
+        {
+            "fase": "Eros",
+            "tiempo": "8s - 14s",
+            "texto_bimodal": "Termina tus estudios y mejora tu futuro. La beca Progresar te apoya.",
+            "sonido_de_fondo": "SFX de un reloj que vuelve a funcionar"
+        }
+    ],
+    "fase_4_pista_visual": [
         {
             "escena_numero": 1,
             "tiempo": "0s - 2s",
-            "fase_psicologica": "Pulsión de muerte",
-            "prompt_visual_ia": "Cinematic close up of a clock ticking away with a red X marked through it",
-            "texto_en_pantalla": "¡No te pierdas la oportunidad!",
-            "texto_para_locucion": "Locución: \"Si no te inscribes a Progresar, podrías perder la oportunidad de recibir una beca educativa\""
+            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de desesperación. La cámara se acerca a su rostro y se enfoca en sus ojos. El fondo es oscuro y el único sonido es el SFX de un reloj que se detiene."
         },
         {
             "escena_numero": 2,
             "tiempo": "2s - 4s",
-            "fase_psicologica": "Pulsión de muerte",
-            "prompt_visual_ia": "Cinematic close up of a student looking worried and stressed with a calendar in the background",
-            "texto_en_pantalla": "La inscripción se extenderá solo hasta el 24 de abril",
-            "texto_para_locucion": "Locución: \"La inscripción a Progresar se extenderá solo hasta el 24 de abril, ¡no te pierdas la oportunidad!\""
+            "prompt_visual_ia": "La cámara se aleja del joven y se muestra una imagen de un reloj que se detiene. El fondo es oscuro y el único sonido es el SFX de un reloj que se detiene."
         },
         {
             "escena_numero": 3,
             "tiempo": "4s - 6s",
-            "fase_psicologica": "Neutro",
-            "prompt_visual_ia": "Cinematic close up of a student looking calm and focused with a book in the background",
-            "texto_en_pantalla": "¿Qué es Progresar?",
-            "texto_para_locucion": "Locución: \"Progresar es una beca educativa que acompaña a los jóvenes para que terminen sus estudios\""
+            "prompt_visual_ia": "La cámara se enfoca en una imagen de un libro que se abre. El fondo es claro y el único sonido es el SFX de un libro que se abre."
         },
         {
             "escena_numero": 4,
             "tiempo": "6s - 8s",
-            "fase_psicologica": "Neutro",
-            "prompt_visual_ia": "Cinematic close up of a student looking happy and motivated with a certificate in the background",
-            "texto_en_pantalla": "¿Cómo puedo inscribirme?",
-            "texto_para_locucion": "Locución: \"El objetivo de Progresar es promover la formación académica y profesional de los jóvenes\""
+            "prompt_visual_ia": "La cámara se aleja del libro y se muestra una imagen de un joven con una expresión de motivación y confianza. El fondo es claro y el único sonido es el SFX de un libro que se abre."
         },
         {
             "escena_numero": 5,
             "tiempo": "8s - 10s",
-            "fase_psicologica": "Pulsión de vida",
-            "prompt_visual_ia": "Cinematic close up of a student looking happy and relieved with a certificate in the background",
-            "texto_en_pantalla": "¡Inscríbete a Progresar!",
-            "texto_para_locucion": "Locución: \"Inscríbete a Progresar y recibe una beca educativa para terminar tus estudios\""
+            "prompt_visual_ia": "La cámara se enfoca en una imagen de un reloj que vuelve a funcionar. El fondo es claro y el único sonido es el SFX de un reloj que vuelve a funcionar."
         },
         {
             "escena_numero": 6,
             "tiempo": "10s - 12s",
-            "fase_psicologica": "Pulsión de vida",
-            "prompt_visual_ia": "Cinematic close up of a student looking happy and motivated with a book in the background",
-            "texto_en_pantalla": "Recibe apoyo financiero y profesional",
-            "texto_para_locucion": "Locución: \"Progresar te ofrece apoyo financiero y profesional para que puedas alcanzar tus objetivos\""
+            "prompt_visual_ia": "La cámara se aleja del reloj y se muestra una imagen de un joven con una expresión de felicidad. El fondo es claro y el único sonido es el SFX de un reloj que vuelve a funcionar."
         },
         {
             "escena_numero": 7,
             "tiempo": "12s - 14s",
-            "fase_psicologica": "Pulsión de vida",
-            "prompt_visual_ia": "Cinematic close up of a student looking happy and proud with a certificate in the background",
-            "texto_en_pantalla": "Termina tus estudios con éxito",
-            "texto_para_locucion": "Locución: \"Con Progresar, puedes terminar tus estudios con éxito y alcanzar tus metas\""
-        },
-        {
-            "escena_numero": 8,
-            "tiempo": "14s - 16s",
-            "fase_psicologica": "Pulsión de vida",
-            "prompt_visual_ia": "Cinematic close up of a student looking happy and motivated with a book in the background",
-            "texto_en_pantalla": "¡Inscríbete a Progresar hoy mismo!",
-            "texto_para_locucion": "Locución: \"Inscríbete a Progresar hoy mismo y comienza a alcanzar tus objetivos\""
+            "prompt_visual_ia": "La cámara se enfoca en una imagen de la beca Progresar. El fondo es claro y el único sonido es el SFX de un reloj que vuelve a funcionar."
         }
     ]
 }
