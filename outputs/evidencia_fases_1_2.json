@@ -1,27 +1,27 @@
 {
     "fase_1_sintesis": {
-        "tema_central": "Progresar es una beca educativa que acompaña a los jóvenes para que terminen sus estudios.",
+        "tema_central": "Progresar es una beca educativa que acompaña a los jóvenes para que terminen la educación obligatoria, continúen estudios en el nivel superior y se formen profesionalmente.",
         "tres_ideas_importantes": [
-            "Progresar ofrece becas para estudiantes que cursan educación secundaria y superior.",
-            "La beca se otorga a estudiantes que cumplen con requisitos de edad, ingresos y regularidad académica.",
-            "El programa promueve la capacitación en áreas estratégicas y contribuye al desarrollo de competencias que favorecen la empleabilidad y el crecimiento profesional de los jóvenes argentinos."
+            "La beca está destinada a estudiantes que se encuentren cursando el nivel secundario.",
+            "Se otorgan 12 cuotas mensuales de $35.000 para la beca Progresar Obligatorio.",
+            "Los estudiantes deberán acreditar regularidad y registrar la aprobación de al menos 4 materias cuatrimestrales o 2 materias anuales durante el ciclo académico 2026."
         ],
-        "idea_principal_video": "¿Qué pasaría si no terminas tus estudios? ¿Cómo afectaría a tu futuro?",
+        "idea_principal_video": "Si no terminas la educación obligatoria, podrías quedarte sin opciones laborales y afectar tu futuro.",
         "palabras_clave": [
             "Progresar",
-            "beca educativa",
-            "estudiantes",
-            "educación secundaria",
-            "superior"
+            "Beca educativa",
+            "Educación obligatoria",
+            "Nivel superior",
+            "Formación profesional"
         ],
-        "tono_deseado": "Informativo y motivador"
+        "tono_deseado": "Serio y motivador"
     },
     "fase_2_mensaje": {
         "hooks_propuestos": [
-            "Si no terminas tus estudios, podrías quedarte sin oportunidades de trabajo.",
-            "El futuro de tus hijos podría estar en peligro si no terminas tus estudios.",
-            "Si no terminas tus estudios, podrías quedarte atrás en la competencia laboral."
+            "Si no terminas la educación obligatoria, podrías quedarte sin opciones laborales y afectar tu futuro.",
+            "La falta de educación obligatoria puede llevarte a la pobreza y la desigualdad.",
+            "Si no estudias en el nivel superior, podrías quedarte atrás en la carrera laboral y afectar tu salario."
         ],
-        "hook_elegido_por_humano": "Si no terminas tus estudios, podrías quedarte sin oportunidades de trabajo."
+        "hook_elegido_por_humano": "La falta de educación obligatoria puede llevarte a la pobreza y la desigualdad."
     }
 }

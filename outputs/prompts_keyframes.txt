@@ -1,20 +1,41 @@
-Eres un director de arte experto en accesibilidad cognitiva.
-Genera exactamente 3 imágenes utilizando los prompts detallados abajo.
-REGLA VITAL: Respeta estrictamente la paleta de colores (HEX) y las instrucciones de iluminación exigidas para cada escena. Estas paletas están diseñadas matemáticamente para guiar la respuesta neurológica del espectador.
---------------------------------------------------
+=== GUÍA PARA EL OPERADOR HUMANO ===
+El modelo de imágenes solo puede generar una escena por solicitud.
+Por favor, copia y pega cada uno de los siguientes bloques por separado en el chat de la IA.
+====================================
 
-▶ ESCENA 1 - FASE: THANATOS (Pulsión de muerte - Alerta/Urgencia)
+--- INICIO COPIAR (ESCENA 1) ---
+Eres un director de arte experto en accesibilidad cognitiva. Genera UNA SOLA IMAGEN siguiendo estrictamente esta configuración:
+
+FASE PSICOLÓGICA: THANATOS (Pulsión de muerte - Alerta/Urgencia)
 PALETA OBLIGATORIA: Rojo Carmesí (#D90429), Gris Antracita (#2B2D42), Amarillo Alerta (#FFC300)
-ESTILO DE COLOR: Aplica una iluminación dramática y de alto contraste predominando estos tonos para generar urgencia y saliencia visual.
-PROMPT VISUAL: "Cinematic close up de un joven con una expresión de desesperación, con un fondo de un reloj que se detiene. El reloj se detiene en la hora 12 y el joven se queda con una expresión de sorpresa y desesperación. El color del fondo es un gris oscuro y el color del reloj es un rojo intenso."
+ESTILO DE COLOR: Aplica una iluminación dramática y de alto contraste predominando estos tonos.
+REGLA DE CONSISTENCIA: La estética debe ser hiperrealista, cinematográfica y limpia, optimizada para no sobrecargar la atención.
 
-▶ ESCENA 3 - FASE: NEUTRO (Transición - Descanso Cognitivo)
+PROMPT VISUAL: "Cámara en primer plano de un reloj que marca el tiempo, con un fondo de un mapa del mundo en ruinas. El reloj está parado en la hora 12, y el mapa está cubierto de polvo y escombros. El color del reloj es rojo oscuro, y el mapa tiene un tono gris antracita. La cámara se mueve lentamente hacia arriba, mostrando el reloj y el mapa en detalle. El movimiento es suave y lento, para crear un sentido de urgencia y desesperanza."
+--- FIN COPIAR ---
+
+
+--- INICIO COPIAR (ESCENA 3) ---
+Eres un director de arte experto en accesibilidad cognitiva. Genera UNA SOLA IMAGEN siguiendo estrictamente esta configuración:
+
+FASE PSICOLÓGICA: NEUTRO (Transición - Descanso Cognitivo)
 PALETA OBLIGATORIA: Gris Azulado (#8D99AE), Blanco Roto (#EDF2F4), Cian Suave (#A8DADC)
-ESTILO DE COLOR: Aplica una paleta desaturada, limpia y de iluminación suave para reducir la carga cognitiva.
-PROMPT VISUAL: "Cinematic close up de un joven con una expresión de sorpresa y esperanza, con un fondo de una campana que suena. La campana suena con un sonido alegre y el joven se queda con una expresión de felicidad. El color del fondo es un rojo intenso y el color de la campana es un dorado brillante."
+ESTILO DE COLOR: Aplica una paleta desaturada, limpia y de iluminación suave.
+REGLA DE CONSISTENCIA: La estética debe ser hiperrealista, cinematográfica y limpia, optimizada para no sobrecargar la atención.
 
-▶ ESCENA 5 - FASE: EROS (Pulsión de vida - Recompensa/Dopamina)
+PROMPT VISUAL: "Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono amarillo sol. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza."
+--- FIN COPIAR ---
+
+
+--- INICIO COPIAR (ESCENA 5) ---
+Eres un director de arte experto en accesibilidad cognitiva. Genera UNA SOLA IMAGEN siguiendo estrictamente esta configuración:
+
+FASE PSICOLÓGICA: EROS (Pulsión de vida - Recompensa/Dopamina)
 PALETA OBLIGATORIA: Verde Esmeralda (#06D6A0), Azul Brillante (#118AB2), Amarillo Sol (#FFD166)
-ESTILO DE COLOR: Aplica una iluminación brillante, vibrante y acogedora predominando estos tonos para transmitir resolución y recompensa visual.
-PROMPT VISUAL: "Cinematic close up de un joven con una expresión de satisfacción, con un fondo de una imagen de un joven que está estudiando y sonriendo. El joven con la expresión de satisfacción se queda con una expresión de felicidad y el color del fondo es un rojo intenso y el color del joven es un dorado brillante."
+ESTILO DE COLOR: Aplica una iluminación brillante, vibrante y acogedora predominando estos tonos.
+REGLA DE CONSISTENCIA: La estética debe ser hiperrealista, cinematográfica y limpia, optimizada para no sobrecargar la atención.
+
+PROMPT VISUAL: "Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono amarillo sol. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza."
+--- FIN COPIAR ---
+
 

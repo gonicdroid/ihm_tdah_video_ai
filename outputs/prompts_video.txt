@@ -1,0 +1,40 @@
+=========================================================
+INSTRUCCIONES PARA GENERAR VIDEO
+=========================================================
+CONFIGURACIÓN DE LA INTERFAZ):
+1. Sube la IMAGEN (Keyframe) indicada para la fase.
+2. Ajusta el RELOJ (Duración) a los segundos indicados.
+3. DESACTIVA EL AUDIO (haz clic en el ícono del altavoz).
+4. Copia y pega TODO el bloque de 'PROMPT COMPUESTO'.
+
+--- VIDEO: FASE THANATOS ---
+[IMAGEN A SUBIR]: Usa el Keyframe de la Escena 1
+[DURACIÓN EN UI]: 4s
+[AUDIO]: DESACTIVADO
+[PROMPT COMPUESTO A COPIAR Y PEGAR]:
+Evolve the scene sequentially matching the timestamps:
+[0s - 2s]: Cámara en primer plano de un reloj que marca el tiempo, con un fondo de un mapa del mundo en ruinas. El reloj está parado en la hora 12, y el mapa está cubierto de polvo y escombros. El color del reloj es rojo oscuro, y el mapa tiene un tono gris antracita. La cámara se mueve lentamente hacia arriba, mostrando el reloj y el mapa en detalle. El movimiento es suave y lento, para crear un sentido de urgencia y desesperanza.
+[2s - 4s]: Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está con la cara cubierta de lágrimas, y el libro está cerrado. El libro tiene un tono blanco roto. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de tristeza y desesperanza.
+---------------------------------------------------------
+
+--- VIDEO: FASE NEUTRO ---
+[IMAGEN A SUBIR]: Usa el Keyframe de la Escena 3
+[DURACIÓN EN UI]: 4s
+[AUDIO]: DESACTIVADO
+[PROMPT COMPUESTO A COPIAR Y PEGAR]:
+Evolve the scene sequentially matching the timestamps:
+[4s - 6s]: Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono amarillo sol. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza.
+[6s - 8s]: Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono blanco roto. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza.
+---------------------------------------------------------
+
+--- VIDEO: FASE EROS ---
+[IMAGEN A SUBIR]: Usa el Keyframe de la Escena 5
+[DURACIÓN EN UI]: 6s
+[AUDIO]: DESACTIVADO
+[PROMPT COMPUESTO A COPIAR Y PEGAR]:
+Evolve the scene sequentially matching the timestamps:
+[8s - 10s]: Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono amarillo sol. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza.
+[10s - 12s]: Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono blanco roto. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza.
+[12s - 14s]: Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono amarillo sol. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza.
+---------------------------------------------------------
+

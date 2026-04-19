@@ -11,15 +11,15 @@ from ingesta import ExtractorDocumental
 load_dotenv()
 
 class CerebroPsicologico:
-    """Implementa el Pipeline de IA dividido en fases según la rúbrica académica."""
+    """Implementa el Pipeline de IA dividido en fases."""
     def __init__(self):
         self.cliente = Groq(api_key=os.getenv("GROQ_API_KEY"))
         self.modelo = os.getenv("LLM_MODEL")
 
     def _limpiar_json(self, texto_respuesta: str) -> Dict[str, Any]:
-        """Sanitiza la respuesta del LLM quitando bloques de markdown antes de parsear."""
+        """Sanitiza la respuesta del LLM."""
         texto_limpio = texto_respuesta.strip()
-        # Usamos expresiones regulares para extraer solo lo que esté entre la primera llave { y la última }
+        # Expresiones regulares para extraer solo lo que esté entre la primera llave y la última.
         match = re.search(r'\{.*\}', texto_limpio, re.DOTALL)
         if match:
             texto_limpio = match.group(0)
@@ -45,7 +45,7 @@ class CerebroPsicologico:
             3. Idea principal para el video: Un concepto accionable que sirva para generar el "gancho" de pérdida (Pulsión de muerte) y la "solución" (Pulsión de vida).
             4. Palabras clave: 4 a 6 términos esenciales.
             5. Tono deseado: Cómo debe comunicarse el mensaje.
-            6. Para los "hooks_propuestos": redacta 3 ganchos que utilicen obligatoriamente la pulsión de muerte. Longitud máxima de 10 palabras, estrictamente afirmaciones. No debes dar la solución al problema.
+            6. Para los "hooks_propuestos": redacta 3 ganchos que utilicen obligatoriamente la pulsión de muerte. Longitud máxima de 10 palabras, estrictamente afirmaciones, prohibido generar interrogantes. No debes dar la solución al problema.
 
             FORMATO DE SALIDA: Debes devolver ÚNICAMENTE un objeto JSON válido SIN MARKDOWN con la siguiente estructura exacta:
             {
@@ -68,7 +68,7 @@ class CerebroPsicologico:
                 {"role": "user", "content": f"Texto fuente: {texto_fuente}"}
             ],
             model=self.modelo,
-            temperature=0.4, # Un poco más de temperatura para mayor creatividad en los hooks
+            temperature=0.4,
         )
         return self._limpiar_json(respuesta.choices[0].message.content)
 
@@ -79,37 +79,41 @@ class CerebroPsicologico:
         * El TDAH es un trastorno que implica diferencias reales en la regulación de la atención, el control conductual y la relación con la recompensa inmediata. Diseñar para este público obliga a minimizar la carga cognitiva, reducir la fricción visual y ofrecer refuerzos inmediatos y salientes. 
         * La Arquitectura Psicológica: Thanatos, Neutro y Eros: tres fases psicológicas secuenciales que manipulan los niveles de dopamina del usuario.
 
-        # REGLAS DEL STORYBOARD VISUAL:
+        # REGLAS DEL STORYBOARD PISTA_VISUAL:
         - Usa el JSON de síntesis provisto para crear el guion del video.
         - DEBES utilizar obligatoriamente el "hook_elegido_por_humano" como texto inicial de la primera escena.
+        - Las escenas de fase_4_pista_visual expondrán unicamente lo que pasa visualmente, sin texto ni audio. El texto se expone únicamente en la pista narrativa.
         - 7 escenas exactas de 2 segundos cada una (14s totales). En redes sociales se tiene apenas 10 a 14 segundos para captar al usuario, si no se logra, simplemente saltean.
-        - Escenas 1-2 (0-4s): Pulsión de muerte, fase 1: "Thanatos"
+        - Escenas 1-2 (0-4s): Pulsión de muerte, fase 1: "Thanatos" 
             * El cerebro reacciona instantáneamente a la alerta, la pérdida o la urgencia. Al mostrar un escenario catastrófico o la posibilidad de perder algo, el cerebro inyecta dopamina y fuerza al usuario a prestar atención.
-            * Ejecución: ser agresivo visual o auditivamente (ej. frecuencias altas, colores rojos, imágenes de desesperación).
-            * Ejemplo: "Las nuevas cepas avanzan y estás perdiendo tu oportunidad de inmunizarte. Podrías quedarte sin tu dosis."
+            * Ejecución: ser agresivo visualmente, mostrar un escenario negativo, usar colores y contrastes que generen alerta. 
+            * Ejemplo: Mostrar un escenario negativo, representando la pérdida, urgencia o el peligro. 
+            * PALETA COLORES OBLIGATORIA UTILIZAR AL MENOS UNO: Rojo Carmesí, Gris Antracita, Amarillo Alerta
         - Escenas 3-4 (4-8s): Fase 2: Neutro.
             * Pasar al usuario del "modo pánico" a una transición para tranquilizarlo. El neutro baja o mantiene esa dopamina "negativa" para prepararlo para el mensaje que se quiere dar.
             * Ejecución: Cortás la saturación. Mostrás un elemento que transmita seguridad o institucionalidad.
-            * Ejemplo: Corte abrupto a una placa minimalista, aparecen los logos nacionales, el audio baja de frecuencia. "Plan Estratégico de Salud Pública".
+            * Ejemplo: Corte abrupto a una placa minimalista, aparecen los logos nacionales, el audio baja de frecuencia.
+            * PALETA COLORES OBLIGATORIA UTILIZAR AL MENOS UNO: Gris Azulado, Blanco Roto, Cian Suave
         - Escenas 5-8 (8-14s): Fase 3: Pulsión de vida. "Eros" La Recompensa.
             * Es la entrega de la buena noticia. Esta fase debe restaurar la situación de estrés que generaste en la Pulsión de Muerte. Vuelve a subir la dopamina, pero esta vez con una connotación positiva.
             * Ejecución: Mensajes simples, soluciones directas y refuerzos inmediatos. El usuario nunca debe irse amargado.
-            * Ejemplo: "Acá te vacunamos gratis, sin turnos y cerca de tu casa. Protegé a los tuyos hoy mismo."
-        - "prompt_visual_ia": Debes describir la escena de forma ultra-descriptivo sobre cámara, movimientos, objetos, adjetivos, colores, y filtros. Longitud de al menos 40 palabras. DEBES mantener continuidad visual entre escenas.
+            * Ejemplo: dar la solución al problema, mostrar escenario positivo y feliz.
+            * PALETA COLORES OBLIGATRIA UTILIZAR AL MENOS UNO: Verde Esmeralda, Azul Brillante, Amarillo Sol
+        - "prompt_visual_ia": Debes describir la escena de forma ultra-descriptivo sobre cámara, movimientos, objetos, adjetivos, colores, y filtros, NO DEBE HABER NADA ESCRITO EN LA ESCENA. Longitud de al menos 40 palabras. DEBES mantener continuidad visual entre escenas y describir UNICAMENTE visualmente.
         - El guión debe apoyarse en al menos 3 de estos recursos: atención selectiva, saliencia visual, novedad, contraste, carga cognitiva, memoria de trabajo, motivación, recompensa inmediata, emoción, legibilidad, jerarquía visual, reducción de fricción.
 
         1. REGLAS DE PISTA NARRATIVA (AUDIO Y TEXTO):
         - Solo habrá 3 textos en todo el video (uno por cada fase psicológica).
-        - Fase 1 (Thanatos - 0s a 4s): Usa OBLIGATORIAMENTE el "hook_elegido_por_humano" y genera máximo 9 palabras. 
-        - Fase 2 (Neutro - 4s a 8s): Transición institucional que transmite seguridad. genera máximo 6 palabras.
-        - Fase 3 (Eros - 8s a 14s): Solución y recompensa inmediata. Genera máximo 12 palabras
+        - Fase 1 (Thanatos - 0s a 4s): Usa OBLIGATORIAMENTE el "hook_elegido_por_humano" y genera máximo 9 palabras. El sonido de fondo deben El sonido de fondo debe generar urgencia a través del RITMO, no del dolor ej: latido acelerado, tictac rápido de reloj.
+        - Fase 2 (Neutro - 4s a 8s): Transición institucional que transmite seguridad. genera máximo 6 palabras. El sonido de fondo deben ser tonos bajos y suaves, como un sonido ambiental tranquilo.
+        - Fase 3 (Eros - 8s a 14s): Solución y recompensa inmediata. Genera máximo 12 palabras. El sonido de fondo deben ser melodías ascendentes o sonidos que evoquen positividad y alivio, como un arpegio brillante o un sonido de campana suave.
 
         Devuelve ÚNICAMENTE un JSON PURO con esta estructura exacta:
         {
           "fase_3_psicologia": {
               "recursos_utilizados": [
-                  {"recurso": "Redundancia bimodal", "justificacion": "..."},
-                  {"recurso": "Contraste visual", "justificacion": "..."}
+                  {"recurso": "...", "justificacion": "..."},
+                  {"recurso": "...", "justificacion": "..."}
               ]
           },
           "fase_4_pista_narrativa": [
@@ -136,7 +140,7 @@ class CerebroPsicologico:
               {
                   "escena_numero": 1,
                   "tiempo": "0s - 2s",
-                  "prompt_visual_ia": "Cinematic close up..."
+                  "prompt_visual_ia": ""
               }
               // ... Continúa hasta la escena 7
           ]
@@ -160,11 +164,75 @@ class PipelineAcademicoTDAH:
     """Orquestador maestro de todas las fases del TP."""
     def __init__(self):
         self.cerebro = CerebroPsicologico()
+
+    def exportar_prompts_video(self, resultados_f3_f4: Dict[str, Any]):
+        """Genera un archivo TXT con instrucciones secuenciales (Prompt Sequencing)"""
+        print("\n[VIDEO] Generando TXT con instrucciones de evolución temporal")
+        escenas = resultados_f3_f4.get("fase_4_pista_visual", [])
         
+        # Estructura para agrupar los prompts por fase psicológica
+        fases_agrupadas = {
+            "THANATOS": {"segundos": "4s", "keyframe_origen": 1, "detalles": []},
+            "NEUTRO": {"segundos": "4s", "keyframe_origen": 3, "detalles": []},
+            "EROS": {"segundos": "6s", "keyframe_origen": 5, "detalles": []}
+        }
+        
+        # Mapeo de qué escena pertenece a qué fase
+        mapeo_escenas = {
+            1: "THANATOS", 2: "THANATOS",
+            3: "NEUTRO", 4: "NEUTRO",
+            5: "EROS", 6: "EROS", 7: "EROS"
+        }
+        
+        # Recorremos todas las escenas y las agrupamos
+        for escena in escenas:
+            num = escena.get("escena_numero")
+            tiempo = escena.get("tiempo", "")
+            prompt = escena.get("prompt_visual_ia", "")
+            
+            fase_nombre = mapeo_escenas.get(num)
+            if fase_nombre:
+                # Agregamos la marca de tiempo al prompt para guiar a la IA
+                fases_agrupadas[fase_nombre]["detalles"].append(f"[{tiempo}]: {prompt}")
+
+        texto_exportar = [
+            "=========================================================\n",
+            "INSTRUCCIONES PARA GENERAR VIDEO\n",
+            "=========================================================\n",
+            "CONFIGURACIÓN DE LA INTERFAZ):\n",
+            "1. Sube la IMAGEN (Keyframe) indicada para la fase.\n",
+            "2. Ajusta el RELOJ (Duración) a los segundos indicados.\n",
+            "3. DESACTIVA EL AUDIO (haz clic en el ícono del altavoz).\n",
+            "4. Copia y pega TODO el bloque de 'PROMPT COMPUESTO'.\n\n"
+        ]
+        
+        for nombre_fase, info in fases_agrupadas.items():
+            # Unimos todos los prompts
+            prompt_compuesto = "\n".join(info["detalles"])
+            
+            bloque = (
+                f"--- VIDEO: FASE {nombre_fase} ---\n"
+                f"[IMAGEN A SUBIR]: Usa el Keyframe de la Escena {info['keyframe_origen']}\n"
+                f"[DURACIÓN EN UI]: {info['segundos']}\n"
+                f"[AUDIO]: DESACTIVADO\n"
+                f"[PROMPT COMPUESTO A COPIAR Y PEGAR]:\n"
+                f"Evolve the scene sequentially matching the timestamps:\n" # Pequeña ancla en inglés para que la IA entienda el formato
+                f"{prompt_compuesto}\n"
+                f"---------------------------------------------------------\n\n"
+            )
+            texto_exportar.append(bloque)
+            
+        ruta_archivo = "outputs/prompts_video.txt"
+        os.makedirs(os.path.dirname(ruta_archivo), exist_ok=True)
+        with open(ruta_archivo, 'w', encoding='utf-8') as f:
+            f.writelines(texto_exportar)
+            
+        print(f"  -> Archivo de instrucciones para video creado en: {ruta_archivo}")
+        print("  -> PASO MANUAL: Abre ese archivo, copia el 'PROMPT COMPUESTO'")
+
     def generar_audios(self, resultados_f3_f4: Dict[str, Any]):
         """Fase 7: Generación de Voz HD usando Edge-TTS (Desacoplado)."""
         print("\n[EDGE-TTS] Iniciando generación de locución bimodal (Fase 7)...")
-        # AHORA LEEMOS LA PISTA NARRATIVA, NO LA VISUAL
         narrativas = resultados_f3_f4.get("fase_4_pista_narrativa", [])
         
         for i, bloque in enumerate(narrativas):
@@ -192,36 +260,36 @@ class PipelineAcademicoTDAH:
                 
         print("  -> Todos los audios (Thanatos, Neutro, Eros) fueron generados en outputs/")
 
+    import os
+
     def exportar_prompts_keyframes(self, resultados_f3_f4: Dict[str, Any]):
-        """Fase 5 (Preparación): Extrae los prompts clave inyectando paletas de color por fase."""
-        print("\n[KEYFRAMES] Extrayendo prompts visuales y aplicando psicología del color (Fase 5)...")
+        """Fase 5 (Preparación): Genera prompts individuales para el modelo de imágenes (Relación 1:1)."""
+        print("\n[KEYFRAMES] Desacoplando prompts visuales para generación secuencial (Fase 5)...")
         escenas = resultados_f3_f4.get("fase_4_pista_visual", [])
         
-        # Paletas predefinidas basadas en modulación de atención para TDAH
         config_fases = {
             1: {
                 "nombre": "THANATOS (Pulsión de muerte - Alerta/Urgencia)",
                 "paleta": "Rojo Carmesí (#D90429), Gris Antracita (#2B2D42), Amarillo Alerta (#FFC300)",
-                "instruccion_color": "Aplica una iluminación dramática y de alto contraste predominando estos tonos para generar urgencia y saliencia visual."
+                "instruccion_color": "Aplica una iluminación dramática y de alto contraste predominando estos tonos."
             },
             3: {
                 "nombre": "NEUTRO (Transición - Descanso Cognitivo)",
                 "paleta": "Gris Azulado (#8D99AE), Blanco Roto (#EDF2F4), Cian Suave (#A8DADC)",
-                "instruccion_color": "Aplica una paleta desaturada, limpia y de iluminación suave para reducir la carga cognitiva."
+                "instruccion_color": "Aplica una paleta desaturada, limpia y de iluminación suave."
             },
             5: {
                 "nombre": "EROS (Pulsión de vida - Recompensa/Dopamina)",
                 "paleta": "Verde Esmeralda (#06D6A0), Azul Brillante (#118AB2), Amarillo Sol (#FFD166)",
-                "instruccion_color": "Aplica una iluminación brillante, vibrante y acogedora predominando estos tonos para transmitir resolución y recompensa visual."
+                "instruccion_color": "Aplica una iluminación brillante, vibrante y acogedora predominando estos tonos."
             }
         }
         
-        # Prompt maestro más directo, sin pedir texto de retorno
         prompts_exportar = [
-            "Eres un director de arte experto en accesibilidad cognitiva.\n",
-            "Genera exactamente 3 imágenes utilizando los prompts detallados abajo.\n",
-            "REGLA VITAL: Respeta estrictamente la paleta de colores (HEX) y las instrucciones de iluminación exigidas para cada escena. Estas paletas están diseñadas matemáticamente para guiar la respuesta neurológica del espectador.\n",
-            "--------------------------------------------------\n\n"
+            "=== GUÍA PARA EL OPERADOR HUMANO ===\n",
+            "El modelo de imágenes solo puede generar una escena por solicitud.\n",
+            "Por favor, copia y pega cada uno de los siguientes bloques por separado en el chat de la IA.\n",
+            "====================================\n\n"
         ]
         
         for escena in escenas:
@@ -230,24 +298,27 @@ class PipelineAcademicoTDAH:
                 fase = config_fases[num]
                 prompt_base = escena.get("prompt_visual_ia", "")
                 
-                # Ensamblamos el prompt inyectando el color
                 bloque_prompt = (
-                    f"▶ ESCENA {num} - FASE: {fase['nombre']}\n"
+                    f"--- INICIO COPIAR (ESCENA {num}) ---\n"
+                    f"Eres un director de arte experto en accesibilidad cognitiva. Genera UNA SOLA IMAGEN siguiendo estrictamente esta configuración:\n\n"
+                    f"FASE PSICOLÓGICA: {fase['nombre']}\n"
                     f"PALETA OBLIGATORIA: {fase['paleta']}\n"
                     f"ESTILO DE COLOR: {fase['instruccion_color']}\n"
-                    f"PROMPT VISUAL: \"{prompt_base}\"\n\n"
+                    f"REGLA DE CONSISTENCIA: La estética debe ser hiperrealista, cinematográfica y limpia, optimizada para no sobrecargar la atención.\n\n"
+                    f"PROMPT VISUAL: \"{prompt_base}\"\n"
+                    f"--- FIN COPIAR ---\n\n\n"
                 )
                 prompts_exportar.append(bloque_prompt)
                 
-        if len(prompts_exportar) > 4: # Validación simple
+        if len(prompts_exportar) > 4:
             ruta_archivo = "outputs/prompts_keyframes.txt"
             os.makedirs(os.path.dirname(ruta_archivo), exist_ok=True)
             
             with open(ruta_archivo, 'w', encoding='utf-8') as f:
                 f.writelines(prompts_exportar)
                 
-            print(f"  -> Archivo de prompts (con paletas inyectadas) creado exitosamente en: {ruta_archivo}")
-            print("  -> PASO MANUAL: Copia el texto y genera las imágenes. Luego, usa esas imágenes como referencia en el modelo Veo.")
+            print(f"  -> Archivo secuencial de prompts creado en: {ruta_archivo}")
+            print("  -> PASO MANUAL: Abre el archivo y ejecuta las 3 peticiones por separado.")
 
     def ejecutar(self, texto_crudo: str):
         os.makedirs("outputs", exist_ok=True)
@@ -304,7 +375,8 @@ class PipelineAcademicoTDAH:
             self.generar_audios(resultados_f3_f4)
             # --- FASE 5 GENERACION DE KEYFRAMES ---
             self.exportar_prompts_keyframes(resultados_f3_f4)
-            
+            # --- FASE 6 INSTRUCCIONES PARA VIDEO
+            self.exportar_prompts_video(resultados_f3_f4)
         except Exception as e:
             print(f"Error en Fases 3, 4 o 5: {e}")
             return

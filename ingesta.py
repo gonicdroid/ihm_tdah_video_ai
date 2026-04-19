@@ -6,7 +6,7 @@ import docx
 from groq import Groq
 from dotenv import load_dotenv
 
-# Cargar variables de entorno (necesitamos la API KEY para el OCR en la nube)
+# Cargar variables de entorno (API KEY)
 load_dotenv()
 
 class ExtractorDocumental:
@@ -52,8 +52,6 @@ class ExtractorDocumental:
                     
         return texto_consolidado
 
-    # --- ESTRATEGIAS DE EXTRACCIÓN (Puro Python) ---
-
     def _extraer_txt(self, ruta: str) -> str:
         with open(ruta, 'r', encoding='utf-8') as f:
             return f.read()
@@ -62,7 +60,6 @@ class ExtractorDocumental:
         """Limpia etiquetas HTML usando BeautifulSoup para ahorrar tokens."""
         with open(ruta, 'r', encoding='utf-8') as f:
             soup = BeautifulSoup(f, 'html.parser')
-            # Eliminar scripts y estilos ocultos
             for script in soup(["script", "style"]):
                 script.extract()
             return soup.get_text(separator=' ', strip=True)
@@ -105,7 +102,7 @@ class ExtractorDocumental:
                     ]
                 }
             ],
-            temperature=0.0, # Temperatura 0 para evitar que la IA invente cosas en la imagen
+            temperature=0.0, 
         )
         return respuesta.choices[0].message.content
 

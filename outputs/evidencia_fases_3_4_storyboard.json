@@ -3,51 +3,15 @@
         "recursos_utilizados": [
             {
                 "recurso": "Atención selectiva",
-                "justificacion": "Se utiliza la pregunta '¿Qué pasaría si no terminas tus estudios?' para captar la atención del espectador y hacerlo reflexionar sobre el tema."
+                "justificacion": "Para enfocar la atención del usuario en la importancia de la educación obligatoria y su impacto en el futuro laboral."
             },
             {
                 "recurso": "Saliencia visual",
-                "justificacion": "Se utiliza la imagen de un joven con una expresión de desesperación para llamar la atención del espectador y hacerlo sentir empatía con la situación."
+                "justificacion": "Para llamar la atención del usuario y hacer que se sienta motivado a seguir adelante con sus estudios."
             },
             {
                 "recurso": "Novedad",
-                "justificacion": "Se presenta una idea nueva y atractiva para los jóvenes, la posibilidad de obtener una beca educativa que les permita terminar sus estudios y mejorar su futuro."
-            },
-            {
-                "recurso": "Contraste",
-                "justificacion": "Se utiliza el contraste entre la situación actual de los jóvenes y la situación ideal que se puede lograr con la beca educativa para hacer que el espectador se sienta motivado a tomar acción."
-            },
-            {
-                "recurso": "Carga cognitiva",
-                "justificacion": "Se presenta información compleja y detallada sobre la beca educativa y sus beneficios para hacer que el espectador se sienta informado y motivado."
-            },
-            {
-                "recurso": "Memoria de trabajo",
-                "justificacion": "Se utiliza la memoria de trabajo para recordar la información presentada en el video y tomar decisiones informadas."
-            },
-            {
-                "recurso": "Motivación",
-                "justificacion": "Se utiliza la motivación para inspirar a los jóvenes a tomar acción y mejorar su futuro."
-            },
-            {
-                "recurso": "Recompensa inmediata",
-                "justificacion": "Se ofrece la posibilidad de obtener una beca educativa como recompensa inmediata para los jóvenes que se comprometen a terminar sus estudios."
-            },
-            {
-                "recurso": "Emoción",
-                "justificacion": "Se utiliza la emoción para hacer que el espectador se sienta conectado con la situación y motivado a tomar acción."
-            },
-            {
-                "recurso": "Legibilidad",
-                "justificacion": "Se utiliza la legibilidad para hacer que la información presentada sea fácil de entender y recordar."
-            },
-            {
-                "recurso": "Jerarquía visual",
-                "justificacion": "Se utiliza la jerarquía visual para organizar la información presentada de manera clara y fácil de entender."
-            },
-            {
-                "recurso": "Reducción de fricción",
-                "justificacion": "Se reduce la fricción al presentar la información de manera clara y concisa, sin distracciones ni complejidad innecesaria."
+                "justificacion": "Para hacer que el mensaje sea interesante y atractivo para el usuario, y para evitar que se sienta aburrido o desmotivado."
             }
         ]
     },
@@ -55,57 +19,57 @@
         {
             "fase": "Thanatos",
             "tiempo": "0s - 4s",
-            "texto_bimodal": "Si no terminas tus estudios, podrías quedarte sin oportunidades de trabajo.",
-            "sonido_de_fondo": "SFX de un reloj que se detiene"
+            "texto_bimodal": "La falta de educación obligatoria puede llevarte a la pobreza y la desigualdad.",
+            "sonido_de_fondo": "Latido acelerado de un reloj"
         },
         {
             "fase": "Neutro",
             "tiempo": "4s - 8s",
-            "texto_bimodal": "Progresar es una beca educativa que te puede ayudar.",
-            "sonido_de_fondo": "SFX de un libro que se abre"
+            "texto_bimodal": "La educación obligatoria es fundamental para tu futuro.",
+            "sonido_de_fondo": "Sonido ambiental tranquilo"
         },
         {
             "fase": "Eros",
             "tiempo": "8s - 14s",
-            "texto_bimodal": "Obtén una beca educativa y mejora tu futuro.",
-            "sonido_de_fondo": "SFX de una campana que suena"
+            "texto_bimodal": "Con la beca Progresar, puedes terminar la educación obligatoria y seguir adelante con tus estudios en el nivel superior.",
+            "sonido_de_fondo": "Arpegio brillante de una guitarra"
         }
     ],
     "fase_4_pista_visual": [
         {
             "escena_numero": 1,
             "tiempo": "0s - 2s",
-            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de desesperación, con un fondo de un reloj que se detiene. El reloj se detiene en la hora 12 y el joven se queda con una expresión de sorpresa y desesperación. El color del fondo es un gris oscuro y el color del reloj es un rojo intenso."
+            "prompt_visual_ia": "Cámara en primer plano de un reloj que marca el tiempo, con un fondo de un mapa del mundo en ruinas. El reloj está parado en la hora 12, y el mapa está cubierto de polvo y escombros. El color del reloj es rojo oscuro, y el mapa tiene un tono gris antracita. La cámara se mueve lentamente hacia arriba, mostrando el reloj y el mapa en detalle. El movimiento es suave y lento, para crear un sentido de urgencia y desesperanza."
         },
         {
             "escena_numero": 2,
             "tiempo": "2s - 4s",
-            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de desesperación, con un fondo de un libro que se abre. El libro se abre en una página con una imagen de un joven que está estudiando y el joven con la expresión de desesperación se queda con una expresión de sorpresa y esperanza. El color del fondo es un azul claro y el color del libro es un marrón oscuro."
+            "prompt_visual_ia": "Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está con la cara cubierta de lágrimas, y el libro está cerrado. El libro tiene un tono blanco roto. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de tristeza y desesperanza."
         },
         {
             "escena_numero": 3,
             "tiempo": "4s - 6s",
-            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de sorpresa y esperanza, con un fondo de una campana que suena. La campana suena con un sonido alegre y el joven se queda con una expresión de felicidad. El color del fondo es un rojo intenso y el color de la campana es un dorado brillante."
+            "prompt_visual_ia": "Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono amarillo sol. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza."
         },
         {
             "escena_numero": 4,
             "tiempo": "6s - 8s",
-            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de felicidad, con un fondo de una imagen de un joven que está estudiando y sonriendo. El joven con la expresión de felicidad se queda con una expresión de satisfacción y el color del fondo es un azul claro y el color del joven es un marrón oscuro."
+            "prompt_visual_ia": "Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono blanco roto. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza."
         },
         {
             "escena_numero": 5,
             "tiempo": "8s - 10s",
-            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de satisfacción, con un fondo de una imagen de un joven que está estudiando y sonriendo. El joven con la expresión de satisfacción se queda con una expresión de felicidad y el color del fondo es un rojo intenso y el color del joven es un dorado brillante."
+            "prompt_visual_ia": "Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono amarillo sol. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza."
         },
         {
             "escena_numero": 6,
             "tiempo": "10s - 12s",
-            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de felicidad, con un fondo de una imagen de un joven que está estudiando y sonriendo. El joven con la expresión de felicidad se queda con una expresión de satisfacción y el color del fondo es un azul claro y el color del joven es un marrón oscuro."
+            "prompt_visual_ia": "Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono blanco roto. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza."
         },
         {
             "escena_numero": 7,
             "tiempo": "12s - 14s",
-            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de satisfacción, con un fondo de una imagen de un joven que está estudiando y sonriendo. El joven con la expresión de satisfacción se queda con una expresión de felicidad y el color del fondo es un rojo intenso y el color del joven es un dorado brillante."
+            "prompt_visual_ia": "Cámara en primer plano de un estudiante que se siente en una silla, con un libro abierto en sus manos. El estudiante está sonriendo, y el libro está abierto. El libro tiene un tono amarillo sol. La cámara se mueve lentamente hacia arriba, mostrando el estudiante y el libro en detalle. El movimiento es suave y lento, para crear un sentido de alegría y esperanza."
         }
     ]
 }

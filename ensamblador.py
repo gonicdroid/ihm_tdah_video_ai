@@ -1,85 +1,95 @@
 import json
 import os
-from moviepy import VideoFileClip, AudioFileClip, TextClip, CompositeVideoClip, concatenate_videoclips
+import textwrap
+from moviepy import VideoFileClip, AudioFileClip, TextClip, CompositeVideoClip, CompositeAudioClip
 
-def ensamblar_video_tdah(json_path, output_name="video_final_tdah.mp4"):
-    # 1. Cargar la configuración del storyboard
-    if not os.path.exists(json_path):
-        print(f"Error: No se encuentra el archivo {json_path}")
+def ensamblar_video_veo(json_path, video_path="outputs/video_unico.mp4", output_name="video_final_tdah.mp4"):
+    if not os.path.exists(json_path) or not os.path.exists(video_path):
+        print("Error: No se encontró el video base o el JSON.")
         return
 
     with open(json_path, 'r', encoding='utf-8') as f:
         datos = json.load(f)
 
     pista_narrativa = datos.get("fase_4_pista_narrativa", [])
-    pista_visual = datos.get("fase_4_pista_visual", [])
 
-    print(f"--- Iniciando ensamblaje de {len(pista_visual)} clips ---")
-
-    clips_finales = []
-
-    # 2. Procesar las 3 fases psicológicas (Thanatos, Neutro, Eros)
-    # Relacionamos los 7 clips de 2s con las 3 fases (2+2+3)
-    mapeo_fases = {
-        "Thanatos": [1, 2],
-        "Neutro": [3, 4],
-        "Eros": [5, 6, 7]
+    CONFIG = {
+        "color_texto": "white",
+        "color_caja": "black",
+        "opacidad_box": 0.7, 
+        "font": "assets/fonts/Lexend-VariableFont_wght.ttf",
+        "font_size": 48
     }
 
-    for bloque in pista_narrativa:
+    print("--- Parche Anti-Solapamiento: Corte Visual Limpio ---")
+    
+    video_base = VideoFileClip(video_path).with_volume_scaled(0.15)
+    duracion_total = video_base.duration
+    
+    textos_clips = []
+    audios_clips = [video_base.audio]
+
+    # TIEMPOS PARA 14 SEGUNDOS
+    tiempos = [
+        {"inicio": 0, "dur": 4},
+        {"inicio": 4, "dur": 4},
+        {"inicio": 8, "dur": duracion_total - 8}
+    ]
+
+    pos_y_caja = int(video_base.h * 0.65)
+
+    for i, bloque in enumerate(pista_narrativa[:3]):
         fase = bloque["fase"]
-        texto = bloque["texto_bimodal"]
-        indices_clips = mapeo_fases.get(fase, [])
+        texto = bloque["texto_bimodal"].upper()
         
-        # Cargar los videos de esta fase
-        clips_fase = []
-        for i in indices_clips:
-            clip_path = f"outputs/clip_{i}.mp4"
-            if os.path.exists(clip_path):
-                clips_fase.append(VideoFileClip(clip_path))
-            else:
-                print(f" Advertencia: Falta el archivo {clip_path}")
+        # --- A. PROCESAMIENTO DE VOZ (Audio Libre)
+        audio_voz_path = f"outputs/audio_{fase.lower()}.mp3"
+        if os.path.exists(audio_voz_path):
+            voz = AudioFileClip(audio_voz_path).with_start(tiempos[i]["inicio"])
+            audios_clips.append(voz)
 
-        if not clips_fase:
-            continue
+        # --- B. CORTE DE TEXT
+        duracion_estricta_texto = tiempos[i]["dur"] - 0.1
 
-        # Unir los videos de la fase (ej: clip 1 + clip 2)
-        video_fase = concatenate_videoclips(clips_fase)
+        # --- C. FORMATEO Y CAJA DE TEXTO
+        texto_formateado = textwrap.fill(texto, width=22)
 
-        # Cargar el audio generado por Edge-TTS para esta fase
-        audio_path = f"outputs/audio_{fase.lower()}.mp3"
-        if os.path.exists(audio_path):
-            audio = AudioFileClip(audio_path)
-            # Ajustamos el audio al tiempo del video o viceversa si es necesario
-            video_fase = video_fase.set_audio(audio)
-
-        # Crear el texto en pantalla (Redundancia Bimodal)
-        # Ajustamos el tamaño y estilo para TDAH: Grande, centrado, alto contraste
-        txt_clip = TextClip(
-            text=texto.upper(), 
-            font_size=75, 
-            color=estilo["color"], 
-            font="assets/fonts/Lexend-VariableFont_wght.ttf",
-            stroke_color=estilo["stroke"],
-            stroke_width=3,
-            method='caption',
+        temp_txt = TextClip(
+            text=texto_formateado,
+            font_size=CONFIG["font_size"],
+            color=CONFIG["color_texto"],
+            font=CONFIG["font"],
+            method='label',
             text_align='center',
-            size=(video_fase.w * 0.9, None)
-        ).with_duration(video_fase.duration).with_position('center')
+            bg_color=CONFIG["color_caja"]
+        )
 
-        # Componer video + texto
-        video_con_texto = CompositeVideoClip([video_fase, txt_clip])
-        clips_finales.append(video_con_texto)
+        nuevo_ancho = int(temp_txt.w * 1.25)
+        nuevo_alto = int(temp_txt.h * 1.30)
 
-    # 3. Concatenar las 3 fases en el video final de 14 segundos
-    if clips_finales:
-        video_final = concatenate_videoclips(clips_finales)
-        print(f"Renderizando video final: {output_name}...")
-        video_final.write_videofile(output_name, fps=24, codec="libx264")
-        print("¡Video ensamblado con éxito!")
-    else:
-        print("Error: No se pudo generar ningún clip.")
+        txt_clip = TextClip(
+            text=texto_formateado,
+            font_size=CONFIG["font_size"],
+            color=CONFIG["color_texto"],
+            font=CONFIG["font"],
+            method='label',
+            text_align='center',
+            bg_color=CONFIG["color_caja"],
+            size=(nuevo_ancho, nuevo_alto)
+        ).with_start(tiempos[i]["inicio"]).with_duration(duracion_estricta_texto).with_opacity(CONFIG["opacidad_box"])
+
+        txt_clip = txt_clip.with_position(('center', pos_y_caja))
+        textos_clips.append(txt_clip)
+
+    # 3. MEZCLA FINAL
+    audio_final = CompositeAudioClip(audios_clips)
+    video_base = video_base.with_audio(audio_final)
+
+    video_final = CompositeVideoClip([video_base] + textos_clips)
+    
+    print(f"Renderizando video final...")
+    video_final.write_videofile(output_name, fps=24, codec="libx264", audio_codec="aac")
+    print(f"¡Éxito! El solapamiento de textos ha sido eliminado.")
 
 if __name__ == "__main__":
-    # Asegurate de que los nombres de los archivos coincidan
-    ensamblar_video_tdah("outputs/evidencia_fases_3_4_storyboard.json")
+    ensamblar_video_veo("outputs/evidencia_fases_3_4_storyboard.json")
