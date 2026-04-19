@@ -56,15 +56,16 @@ def ensamblar_video_tdah(json_path, output_name="video_final_tdah.mp4"):
         # Crear el texto en pantalla (Redundancia Bimodal)
         # Ajustamos el tamaño y estilo para TDAH: Grande, centrado, alto contraste
         txt_clip = TextClip(
-            texto.upper(), 
-            fontsize=70, 
-            color='white', 
-            font='Arial-Bold',
-            stroke_color='black',
-            stroke_width=2,
+            text=texto.upper(), 
+            font_size=75, 
+            color=estilo["color"], 
+            font="assets/fonts/Lexend-VariableFont_wght.ttf",
+            stroke_color=estilo["stroke"],
+            stroke_width=3,
             method='caption',
-            size=(video_fase.w * 0.8, None)
-        ).set_duration(video_fase.duration).set_position('center')
+            text_align='center',
+            size=(video_fase.w * 0.9, None)
+        ).with_duration(video_fase.duration).with_position('center')
 
         # Componer video + texto
         video_con_texto = CompositeVideoClip([video_fase, txt_clip])

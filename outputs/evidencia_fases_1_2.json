@@ -1,27 +1,27 @@
 {
     "fase_1_sintesis": {
-        "tema_central": "Progresar es una beca educativa que acompaña a los jóvenes para que terminen la educación obligatoria, continúen estudios en el nivel superior y se formen profesionalmente.",
+        "tema_central": "Progresar es una beca educativa que acompaña a los jóvenes para que terminen sus estudios.",
         "tres_ideas_importantes": [
-            "La beca Progresar está destinada a estudiantes que se encuentren cursando el nivel secundario o nivel superior.",
-            "El Programa de Respaldo a Estudiantes Argentinos brinda apoyo para promover la formación académica y profesional.",
-            "La beca se cobrará de la siguiente manera: 12 cuotas mensuales de $35.000, 3 cuotas estímulo y 2 cuotas por rendimiento académico."
+            "Progresar ofrece becas para estudiantes que cursan educación secundaria y superior.",
+            "La beca se otorga a estudiantes que cumplen con requisitos de edad, ingresos y regularidad académica.",
+            "El programa promueve la capacitación en áreas estratégicas y contribuye al desarrollo de competencias que favorecen la empleabilidad y el crecimiento profesional de los jóvenes argentinos."
         ],
-        "idea_principal_video": "Los jóvenes que no tienen la oportunidad de terminar sus estudios pueden perder su futuro y su independencia financiera.",
+        "idea_principal_video": "¿Qué pasaría si no terminas tus estudios? ¿Cómo afectaría a tu futuro?",
         "palabras_clave": [
             "Progresar",
-            "beca",
-            "educativa",
-            "jóvenes",
-            "estudios"
+            "beca educativa",
+            "estudiantes",
+            "educación secundaria",
+            "superior"
         ],
-        "tono_deseado": "Serio y motivador"
+        "tono_deseado": "Informativo y motivador"
     },
     "fase_2_mensaje": {
         "hooks_propuestos": [
-            "Si no terminas tus estudios, podrías perder tu oportunidad de trabajar y vivir con dignidad.",
-            "La falta de educación puede llevar a la pobreza y la dependencia económica.",
-            "Si no te apoyas a ti mismo, nadie lo hará por ti."
+            "Si no terminas tus estudios, podrías quedarte sin oportunidades de trabajo.",
+            "El futuro de tus hijos podría estar en peligro si no terminas tus estudios.",
+            "Si no terminas tus estudios, podrías quedarte atrás en la competencia laboral."
         ],
-        "hook_elegido_por_humano": "Si no te apoyas a ti mismo, nadie lo hará por ti."
+        "hook_elegido_por_humano": "Si no terminas tus estudios, podrías quedarte sin oportunidades de trabajo."
     }
 }

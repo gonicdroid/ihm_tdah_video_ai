@@ -35,8 +35,8 @@ class CerebroPsicologico:
         """Fase 1 (Síntesis) y Fase 2 (Generación de Hooks)."""
         prompt_sistema = """
             Eres un analista experto en procesamiento de información y psicología de la atención (Interfaz Hombre Máquina).
-            Tu objetivo es extraer y estructurar la información crítica del texto fuente provisto, el cual será utilizado para crear un video de 14 segundos dirigido a ciudadanos, contemplando las necesidades de usuarios con déficit de atención (TDAH).
-            Utilizarás obligatoriamente la pulsión de muerte para que el cerebro del espectador reaccione instantáneamente a la alerta, la pérdida o la urgencia, mostrar un escenario catastrófico o la posibilidad de perder algo, Ejecución: ser agresivo, ESTRICTAMENTE PROHIBIDO USAR SIGNOS DE INTERROGACIÓN, usa únicamente afirmaciones imperativas, directas o declaraciones de hechos crudos.
+            Tu objetivo es extraer y estructurar la información crítica del texto fuente provisto, el cual será utilizado para crear un video corto dirigido a ciudadanos, contemplando las necesidades de usuarios con déficit de atención (TDAH).
+            1. Thanatos (0-4s): El gancho de pérdida que genera una reacción inmediata de alerta, urgencia o miedo para que el espectador reaccione instantáneamente. Mostrando un escenario catastrófico o la posibilidad de perder algo, siendo agresivo. 
             2. Neutro (4-8s): Transición institucional que transmite seguridad y reduce la carga cognitiva.
             3. Pulsión de Vida (8-14s): Recompensa inmediata y solución al problema planteado.
             INSTRUCCIONES: Analiza el texto fuente y extrae ÚNICAMENTE los siguientes elementos pensando en cómo alimentar esta arquitectura psicológica:
@@ -45,7 +45,8 @@ class CerebroPsicologico:
             3. Idea principal para el video: Un concepto accionable que sirva para generar el "gancho" de pérdida (Pulsión de muerte) y la "solución" (Pulsión de vida).
             4. Palabras clave: 4 a 6 términos esenciales.
             5. Tono deseado: Cómo debe comunicarse el mensaje.
-            6. Para los "hooks_propuestos": redacta 3 opciones que apliquen estrictamente la "Pulsión de muerte".
+            6. Para los "hooks_propuestos": redacta 3 ganchos que utilicen obligatoriamente la pulsión de muerte. Longitud máxima de 10 palabras, estrictamente afirmaciones. No debes dar la solución al problema.
+
             FORMATO DE SALIDA: Debes devolver ÚNICAMENTE un objeto JSON válido SIN MARKDOWN con la siguiente estructura exacta:
             {
               "fase_1_sintesis": {
@@ -56,7 +57,7 @@ class CerebroPsicologico:
                 "tono_deseado": ""
               },
               "fase_2_mensaje": {
-                "hooks_propuestos": ["Hook 1 (Urgencia)", "Hook 2 (Pérdida)", "Hook 3 (Alerta)"] 
+                "hooks_propuestos": ["", "", ""] 
               }
             }
         """
@@ -192,35 +193,61 @@ class PipelineAcademicoTDAH:
         print("  -> Todos los audios (Thanatos, Neutro, Eros) fueron generados en outputs/")
 
     def exportar_prompts_keyframes(self, resultados_f3_f4: Dict[str, Any]):
-        """Fase 5 (Preparación): Extrae los prompts clave para generar imágenes de referencia."""
-        print("\n[KEYFRAMES] Extrayendo prompts visuales para imágenes de referencia (Fase 5)...")
+        """Fase 5 (Preparación): Extrae los prompts clave inyectando paletas de color por fase."""
+        print("\n[KEYFRAMES] Extrayendo prompts visuales y aplicando psicología del color (Fase 5)...")
         escenas = resultados_f3_f4.get("fase_4_pista_visual", [])
         
-        # Los puntos de quiebre donde cambia la fase psicológica
-        escenas_clave = {
-            1: "THANATOS (Pulsión de muerte)", 
-            3: "NEUTRO (Transición)", 
-            5: "EROS (Pulsión de vida)"
+        # Paletas predefinidas basadas en modulación de atención para TDAH
+        config_fases = {
+            1: {
+                "nombre": "THANATOS (Pulsión de muerte - Alerta/Urgencia)",
+                "paleta": "Rojo Carmesí (#D90429), Gris Antracita (#2B2D42), Amarillo Alerta (#FFC300)",
+                "instruccion_color": "Aplica una iluminación dramática y de alto contraste predominando estos tonos para generar urgencia y saliencia visual."
+            },
+            3: {
+                "nombre": "NEUTRO (Transición - Descanso Cognitivo)",
+                "paleta": "Gris Azulado (#8D99AE), Blanco Roto (#EDF2F4), Cian Suave (#A8DADC)",
+                "instruccion_color": "Aplica una paleta desaturada, limpia y de iluminación suave para reducir la carga cognitiva."
+            },
+            5: {
+                "nombre": "EROS (Pulsión de vida - Recompensa/Dopamina)",
+                "paleta": "Verde Esmeralda (#06D6A0), Azul Brillante (#118AB2), Amarillo Sol (#FFD166)",
+                "instruccion_color": "Aplica una iluminación brillante, vibrante y acogedora predominando estos tonos para transmitir resolución y recompensa visual."
+            }
         }
         
+        # Prompt maestro más directo, sin pedir texto de retorno
         prompts_exportar = [
-            "INSTRUCCIONES:\n",
-            "Genera 3 imágenes de referencia basándote en los siguientes prompts. Además, indícame la paleta de colores sugerida en HEX y la tipografía ideal para TDAH.\n\n"
+            "Eres un director de arte experto en accesibilidad cognitiva.\n",
+            "Genera exactamente 3 imágenes utilizando los prompts detallados abajo.\n",
+            "REGLA VITAL: Respeta estrictamente la paleta de colores (HEX) y las instrucciones de iluminación exigidas para cada escena. Estas paletas están diseñadas matemáticamente para guiar la respuesta neurológica del espectador.\n",
+            "--------------------------------------------------\n\n"
         ]
         
         for escena in escenas:
             num = escena.get("escena_numero")
-            if num in escenas_clave:
-                nombre_fase = escenas_clave[num]
-                prompt = escena.get("prompt_visual_ia", "")
-                prompts_exportar.append(f"--- KEYFRAME: {nombre_fase} (Escena {num}) ---\n{prompt}\n\n")
+            if num in config_fases:
+                fase = config_fases[num]
+                prompt_base = escena.get("prompt_visual_ia", "")
                 
-        if len(prompts_exportar) > 2:
+                # Ensamblamos el prompt inyectando el color
+                bloque_prompt = (
+                    f"▶ ESCENA {num} - FASE: {fase['nombre']}\n"
+                    f"PALETA OBLIGATORIA: {fase['paleta']}\n"
+                    f"ESTILO DE COLOR: {fase['instruccion_color']}\n"
+                    f"PROMPT VISUAL: \"{prompt_base}\"\n\n"
+                )
+                prompts_exportar.append(bloque_prompt)
+                
+        if len(prompts_exportar) > 4: # Validación simple
             ruta_archivo = "outputs/prompts_keyframes.txt"
+            os.makedirs(os.path.dirname(ruta_archivo), exist_ok=True)
+            
             with open(ruta_archivo, 'w', encoding='utf-8') as f:
                 f.writelines(prompts_exportar)
-            print(f"  -> Archivo creado exitosamente en: {ruta_archivo}")
-            print("  -> PASO MANUAL: Abre ese archivo, copia todo el texto y pégalo en el chat con Gemini.")
+                
+            print(f"  -> Archivo de prompts (con paletas inyectadas) creado exitosamente en: {ruta_archivo}")
+            print("  -> PASO MANUAL: Copia el texto y genera las imágenes. Luego, usa esas imágenes como referencia en el modelo Veo.")
 
     def ejecutar(self, texto_crudo: str):
         os.makedirs("outputs", exist_ok=True)

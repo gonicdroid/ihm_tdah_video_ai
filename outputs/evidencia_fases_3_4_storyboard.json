@@ -3,51 +3,51 @@
         "recursos_utilizados": [
             {
                 "recurso": "Atención selectiva",
-                "justificacion": "Se utiliza la idea de que si no terminas tus estudios, podrías perder tu oportunidad de trabajar y vivir con dignidad para captar la atención del usuario."
+                "justificacion": "Se utiliza la pregunta '¿Qué pasaría si no terminas tus estudios?' para captar la atención del espectador y hacerlo reflexionar sobre el tema."
             },
             {
                 "recurso": "Saliencia visual",
-                "justificacion": "Se utiliza la imagen de un joven con una expresión de desesperación para llamar la atención del usuario."
+                "justificacion": "Se utiliza la imagen de un joven con una expresión de desesperación para llamar la atención del espectador y hacerlo sentir empatía con la situación."
             },
             {
                 "recurso": "Novedad",
-                "justificacion": "Se presenta una idea nueva y atractiva para motivar al usuario a terminar sus estudios."
+                "justificacion": "Se presenta una idea nueva y atractiva para los jóvenes, la posibilidad de obtener una beca educativa que les permita terminar sus estudios y mejorar su futuro."
             },
             {
                 "recurso": "Contraste",
-                "justificacion": "Se utiliza el contraste entre la imagen de un joven con una expresión de desesperación y la imagen de un joven con una expresión de motivación y confianza para llamar la atención del usuario."
+                "justificacion": "Se utiliza el contraste entre la situación actual de los jóvenes y la situación ideal que se puede lograr con la beca educativa para hacer que el espectador se sienta motivado a tomar acción."
             },
             {
                 "recurso": "Carga cognitiva",
-                "justificacion": "Se utiliza la idea de que si no terminas tus estudios, podrías perder tu oportunidad de trabajar y vivir con dignidad para cargar la mente del usuario con información relevante."
+                "justificacion": "Se presenta información compleja y detallada sobre la beca educativa y sus beneficios para hacer que el espectador se sienta informado y motivado."
             },
             {
                 "recurso": "Memoria de trabajo",
-                "justificacion": "Se utiliza la imagen de un joven con una expresión de desesperación para recordar al usuario la importancia de terminar sus estudios."
+                "justificacion": "Se utiliza la memoria de trabajo para recordar la información presentada en el video y tomar decisiones informadas."
             },
             {
                 "recurso": "Motivación",
-                "justificacion": "Se presenta una idea motivadora para inspirar al usuario a terminar sus estudios."
+                "justificacion": "Se utiliza la motivación para inspirar a los jóvenes a tomar acción y mejorar su futuro."
             },
             {
                 "recurso": "Recompensa inmediata",
-                "justificacion": "Se ofrece la oportunidad de terminar sus estudios y mejorar su futuro para ofrecer una recompensa inmediata al usuario."
+                "justificacion": "Se ofrece la posibilidad de obtener una beca educativa como recompensa inmediata para los jóvenes que se comprometen a terminar sus estudios."
             },
             {
                 "recurso": "Emoción",
-                "justificacion": "Se utiliza la emoción de la desesperación y la motivación para captar la atención y la emoción del usuario."
+                "justificacion": "Se utiliza la emoción para hacer que el espectador se sienta conectado con la situación y motivado a tomar acción."
             },
             {
                 "recurso": "Legibilidad",
-                "justificacion": "Se utiliza el lenguaje claro y conciso para que el usuario pueda entender fácilmente la información."
+                "justificacion": "Se utiliza la legibilidad para hacer que la información presentada sea fácil de entender y recordar."
             },
             {
                 "recurso": "Jerarquía visual",
-                "justificacion": "Se utiliza la jerarquía visual para organizar la información de manera clara y fácil de entender."
+                "justificacion": "Se utiliza la jerarquía visual para organizar la información presentada de manera clara y fácil de entender."
             },
             {
                 "recurso": "Reducción de fricción",
-                "justificacion": "Se ofrece la oportunidad de terminar sus estudios y mejorar su futuro para reducir la fricción y la resistencia del usuario a tomar la decisión de terminar sus estudios."
+                "justificacion": "Se reduce la fricción al presentar la información de manera clara y concisa, sin distracciones ni complejidad innecesaria."
             }
         ]
     },
@@ -55,57 +55,57 @@
         {
             "fase": "Thanatos",
             "tiempo": "0s - 4s",
-            "texto_bimodal": "Si no te apoyas a ti mismo, nadie lo hará por ti.",
+            "texto_bimodal": "Si no terminas tus estudios, podrías quedarte sin oportunidades de trabajo.",
             "sonido_de_fondo": "SFX de un reloj que se detiene"
         },
         {
             "fase": "Neutro",
             "tiempo": "4s - 8s",
-            "texto_bimodal": "La educación es la clave para un futuro mejor.",
+            "texto_bimodal": "Progresar es una beca educativa que te puede ayudar.",
             "sonido_de_fondo": "SFX de un libro que se abre"
         },
         {
             "fase": "Eros",
             "tiempo": "8s - 14s",
-            "texto_bimodal": "Termina tus estudios y mejora tu futuro. La beca Progresar te apoya.",
-            "sonido_de_fondo": "SFX de un reloj que vuelve a funcionar"
+            "texto_bimodal": "Obtén una beca educativa y mejora tu futuro.",
+            "sonido_de_fondo": "SFX de una campana que suena"
         }
     ],
     "fase_4_pista_visual": [
         {
             "escena_numero": 1,
             "tiempo": "0s - 2s",
-            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de desesperación. La cámara se acerca a su rostro y se enfoca en sus ojos. El fondo es oscuro y el único sonido es el SFX de un reloj que se detiene."
+            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de desesperación, con un fondo de un reloj que se detiene. El reloj se detiene en la hora 12 y el joven se queda con una expresión de sorpresa y desesperación. El color del fondo es un gris oscuro y el color del reloj es un rojo intenso."
         },
         {
             "escena_numero": 2,
             "tiempo": "2s - 4s",
-            "prompt_visual_ia": "La cámara se aleja del joven y se muestra una imagen de un reloj que se detiene. El fondo es oscuro y el único sonido es el SFX de un reloj que se detiene."
+            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de desesperación, con un fondo de un libro que se abre. El libro se abre en una página con una imagen de un joven que está estudiando y el joven con la expresión de desesperación se queda con una expresión de sorpresa y esperanza. El color del fondo es un azul claro y el color del libro es un marrón oscuro."
         },
         {
             "escena_numero": 3,
             "tiempo": "4s - 6s",
-            "prompt_visual_ia": "La cámara se enfoca en una imagen de un libro que se abre. El fondo es claro y el único sonido es el SFX de un libro que se abre."
+            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de sorpresa y esperanza, con un fondo de una campana que suena. La campana suena con un sonido alegre y el joven se queda con una expresión de felicidad. El color del fondo es un rojo intenso y el color de la campana es un dorado brillante."
         },
         {
             "escena_numero": 4,
             "tiempo": "6s - 8s",
-            "prompt_visual_ia": "La cámara se aleja del libro y se muestra una imagen de un joven con una expresión de motivación y confianza. El fondo es claro y el único sonido es el SFX de un libro que se abre."
+            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de felicidad, con un fondo de una imagen de un joven que está estudiando y sonriendo. El joven con la expresión de felicidad se queda con una expresión de satisfacción y el color del fondo es un azul claro y el color del joven es un marrón oscuro."
         },
         {
             "escena_numero": 5,
             "tiempo": "8s - 10s",
-            "prompt_visual_ia": "La cámara se enfoca en una imagen de un reloj que vuelve a funcionar. El fondo es claro y el único sonido es el SFX de un reloj que vuelve a funcionar."
+            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de satisfacción, con un fondo de una imagen de un joven que está estudiando y sonriendo. El joven con la expresión de satisfacción se queda con una expresión de felicidad y el color del fondo es un rojo intenso y el color del joven es un dorado brillante."
         },
         {
             "escena_numero": 6,
             "tiempo": "10s - 12s",
-            "prompt_visual_ia": "La cámara se aleja del reloj y se muestra una imagen de un joven con una expresión de felicidad. El fondo es claro y el único sonido es el SFX de un reloj que vuelve a funcionar."
+            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de felicidad, con un fondo de una imagen de un joven que está estudiando y sonriendo. El joven con la expresión de felicidad se queda con una expresión de satisfacción y el color del fondo es un azul claro y el color del joven es un marrón oscuro."
         },
         {
             "escena_numero": 7,
             "tiempo": "12s - 14s",
-            "prompt_visual_ia": "La cámara se enfoca en una imagen de la beca Progresar. El fondo es claro y el único sonido es el SFX de un reloj que vuelve a funcionar."
+            "prompt_visual_ia": "Cinematic close up de un joven con una expresión de satisfacción, con un fondo de una imagen de un joven que está estudiando y sonriendo. El joven con la expresión de satisfacción se queda con una expresión de felicidad y el color del fondo es un rojo intenso y el color del joven es un dorado brillante."
         }
     ]
 }
