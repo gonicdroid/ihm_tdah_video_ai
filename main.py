@@ -104,7 +104,7 @@ class CerebroPsicologico:
 
         1. REGLAS DE PISTA NARRATIVA (AUDIO Y TEXTO):
         - Solo habrá 3 textos en todo el video (uno por cada fase psicológica).
-        - Fase 1 (Thanatos - 0s a 4s): Usa OBLIGATORIAMENTE el "hook_elegido_por_humano" y genera máximo 9 palabras. El sonido de fondo deben El sonido de fondo debe generar urgencia a través del RITMO, no del dolor ej: latido acelerado, tictac rápido de reloj.
+        - Fase 1 (Thanatos - 0s a 4s): Usa OBLIGATORIAMENTE el "hook_elegido_por_humano" y genera máximo 9 palabras. El sonido de fondo debe generar urgencia a través del RITMO, no del dolor ej: latido acelerado, tictac rápido de reloj.
         - Fase 2 (Neutro - 4s a 8s): Transición institucional que transmite seguridad. genera máximo 6 palabras. El sonido de fondo deben ser tonos bajos y suaves, como un sonido ambiental tranquilo.
         - Fase 3 (Eros - 8s a 14s): Solución y recompensa inmediata. Genera máximo 12 palabras. El sonido de fondo deben ser melodías ascendentes o sonidos que evoquen positividad y alivio, como un arpegio brillante o un sonido de campana suave.
 
