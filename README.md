@@ -3,6 +3,12 @@
 
 El proyecto implementa una arquitectura híbrida en la cual lee el contenido dispuesto por el usuario en la carpeta Assets para recolectar la información más importante de esta. En base a lo obtenido, genera "ganchos" para retener al espectador y darle el mensaje deseado.
 
+### Archivos ya generados
+Este proyecto cuenta con los archivos ya generados de la ejecución en la que se hace entrega.
+* [Acceder a el vídeo final generado](./video_final_tdah.mp4)
+* [Acceder al documento teórico con las consideraciones y la ejecución](./TP1_IHM_Gotte_Murguia.pdf)
+* Los archivos de las distintas fases se pueden acceder en la carpeta [outputs](./outputs)
+
 ### Pasos para ejecutar el proyecto
 1. Activar entorno virtual
     ```bash
